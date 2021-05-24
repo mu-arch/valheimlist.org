@@ -2,17 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Valheimlist.org - Community first server list</title>
+    <title>Valheimlist.org - The fair & open Valheim server list!</title>
     <meta name="description" content="Nonprofit community focused Valheim server list.">
 
-    <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://valheimlist.org/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="VaLNGOS - Valheim High Performance Server Project">
     <meta property="og:description" content="VaLNGOS is a from scratch open-source implementation of the Valheim game server.">
     <meta property="og:image" content="https://valngos.com/img/ogimage.jpg">
 
-    <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="valngos.com">
     <meta property="twitter:url" content="https://valngos.com/">
@@ -20,55 +18,64 @@
     <meta name="twitter:description" content="VaLNGOS is a from scratch open-source implementation of the Valheim game server.">
     <meta name="twitter:image" content="https://valngos.com/img/ogimage.jpg">
 
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="preconnect" href="https://api.valheimlist.org">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/home.css">
     <link rel="stylesheet" href="/assets/css/icons.css">
 </head>
 <body>
-<section id="header">
+<header>
     <div class="header-content-container">
         <img class="logo-mast" src="/assets/img/logo.svg" alt="Valheimlist.org">
-        <h4>The fair & free Valheim server list!</h4>
-        <p>No ads, paid placements, or "donations" - just a awesome community for Valheim servers! <span class="uwu">^.^</span></p>
+        <h4>The fair & open Valheim server list!</h4>
+        <p>No ads, paid placements, or "donations" - just a community for the best Valheim servers! <span class="uwu"></span></p>
         <div class="bg"></div>
         <div class="bgcolorhack"></div>
     </div>
 
-</section>
+</header>
 
 <section id="list-container">
 
     <div class="sidebar">
-        <div class="active"><span class="ico-globe"></span>All Servers</div>
-        <div><span class="ico-swords"></span>PvP Servers</div>
-        <div><span class="ico-mountain"></span>PvE Servers</div>
-        <div><span class="ico-icecream"></span>Vanilla Servers</div>
-        <div><span class="ico-cog"></span>Modded Servers</div>
+        <div id="sidebar-content">
+            <div class="discord-button" onClick="location.href='https://discord.com/api/oauth2/authorize?client_id=845109868985450517&redirect_uri=https%3A%2F%2Fvalheimlist.org%2Fdiscord%2F&response_type=code&scope=guilds.join%20identify%20guilds'">
+                <span class="ico-discord"></span>
+                Login with Discord
+            </div>
+            <span class="privacy-notice">No data is collected or stored.</span>
+            <div class="active"><span class="ico-globe"></span>All Servers</div>
+            <div><span class="ico-swords"></span>PvP Servers</div>
+            <div><span class="ico-mountain"></span>PvE Servers</div>
+            <div><span class="ico-icecream"></span>Vanilla Servers</div>
+            <div><span class="ico-cog"></span>Modded Servers</div>
+        </div>
     </div>
     <div class="list-module">
         <div class="controls">
-            <input class="list-search" id="search-id" type="text" placeholder="Search...">
-            <div id="ttsearch">[ENTER] to search</div>
+            <input class="list-search ico-bg-search" id="search-id" type="text" placeholder="Search servers...">
+            <div id="ttsearch">All</div>
             <div class="control-add"><span class="ico-server"></span>Add server</div>
         </div>
-        <div class="server-list">
+        <div id="server-list" class="server-list">
+            <!--
             <div>
                 <span style="background: url('https://cdn.statically.io/img/valheimservers.net/wp-content/uploads/2021/03/odin.jpg')"></span>
-                <span>Comfy Valheim</span><span><span class="ico-check"></span>Whitelist</span>
+                <span>Comfy Valheim</span>
+                <span>PvE, Whitelist, Events, we focus on creating a friendly and welcoming community.</span>
                 <div></div>
             </div>
-            <div>
-                <span style="background: url('https://cdn.statically.io/img/valheimservers.net/wp-content/uploads/2021/03/odin.jpg')"></span>
-                <span>Comfy Valheim</span><span>Whitelist</span>
-                <div></div>
-            </div><div>
-            <span style="background: url('https://cdn.statically.io/img/valheimservers.net/wp-content/uploads/2021/03/odin.jpg')"></span>
-            <span>Comfy Valheim</span><span>Whitelist</span>
-            <div></div>
-        </div><div>
-            <span style="background: url('https://cdn.statically.io/img/valheimservers.net/wp-content/uploads/2021/03/odin.jpg')"></span>
-            <span>Comfy Valheim</span><span>Whitelist</span>
-            <div></div>
-        </div>
+            -->
+
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+
         </div>
     </div>
 </section>
