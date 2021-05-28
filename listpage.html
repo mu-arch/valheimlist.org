@@ -21,122 +21,216 @@
     <link rel="preconnect" href="https://api.valheimlist.org">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/listing.css">
-    <link rel="stylesheet" href="/assets/css/icons.css">
 </head>
 <body>
-<nav>
-    <img class="logo-mast" src="/assets/img/logo.svg" alt="Valheimlist.org">
-    <div id="see-all-servers"><span class="ico-server"></span>Browse servers</div>
-    <div class="discord-button" onClick="location.href='https://discord.com/api/oauth2/authorize?client_id=845109868985450517&redirect_uri=https%3A%2F%2Fvalheimlist.org%2Fdiscord%2F&response_type=code&scope=guilds.join%20identify%20guilds'">
-        <span class="ico-discord"></span>
-        Login
-    </div>
-
-</nav>
-
-<header>
-    <div class="header-top">
-        <img src="/assets/uploads/comfylogo.png">
-        <h1>Comfy Valheim</h1>
-        <p>A casual place to make friends! We have custom events, an economy, guilds, & more! </p>
-        <div>Join Server</div>
-    </div>
-    <div class="header-bot">
-        <div class="col">
-            <span>Online</span>
-            <span>78</span>
+<div class="width-container">
+    <nav>
+        <img class="logo-mast" src="/assets/img/logo.svg" alt="Valheimlist.org">
+        <div id="see-all-servers"><span class="ico-server"></span>Browse servers</div>
+        <div class="discord-button" onClick="location.href='https://discord.com/api/oauth2/authorize?client_id=845109868985450517&redirect_uri=https%3A%2F%2Fvalheimlist.org%2Fdiscord%2F&response_type=code&scope=guilds.join%20identify%20guilds'">
+            <span class="ico-discord"></span>
+            Login
         </div>
-        <div class="col">
-            <span>Whitelist</span>
-            <span>Yes</span>
-        </div>
-        <div class="col">
-            <span>Feedback</span>
-            <span>100%</span>
-        </div>
-        <div class="graph">
-            <span>Player Count over 24HR</span>
-            <div style="height:10%;"></div>
-            <div style="height:30%;"></div>
-            <div style="height:33%;"></div>
-            <div style="height:24%;"></div>
-            <div style="height:38%;"></div>
-            <div style="height:43%;"></div>
-            <div style="height:45%;"></div>
-            <div style="height:29%;"></div>
-            <div style="height:47%;"></div>
-            <div style="height:60%;"></div>
-            <div style="height:30%;"></div>
-            <div style="height:10%;"></div>
-            <div style="height:31%;"></div>
-            <div style="height:100%;"></div>
-            <div style="height:30%;"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div style="height:10%;"></div>
-            <div style="height:100%;"></div>
-            <div class="empty"></div>
-            <div style="height:8%;"></div>
-            <div style="height:30%;"></div>
-            <div style="height:33%;"></div>
-            <div style="height:24%;"></div>
-            <div style="height:38%;"></div>
-            <div style="height:43%;"></div>
-            <div style="height:45%;"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div style="height:29%;"></div>
-            <div style="height:47%;"></div>
-            <div style="height:60%;"></div>
-            <div style="height:30%;"></div>
-            <div style="height:31%;"></div>
-            <div style="height:80%;"></div>
-            <div style="height:100%;"></div>
-            <div style="height:30%;"></div>
-            <button>Filter Graph</button>
-        </div>
-    </div>
-</header>
 
-<div class="content-container">
-<section class="desc">
-    <div class="tags">
-        <span>Primarily PvE</span>
-        <span>Vanilla</span>
-        <span>Events</span>
-    </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <h3>Features</h3>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <h3>Features</h3>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </nav>
 
-</section>
+    <header>
+        <div class="header-top">
+            <img alt="The server logo image" src="/assets/uploads/comfylogo.png">
+            <h1>Comfy Valheim</h1>
+            <p>A casual place to make friends! We have custom events, an economy, guilds, & more! </p>
+            <div id="ipbox"><span id="ipcontent">255.255.255.255:24157</span><b id="iptext">Click to copy IP</b></div>
+            <div><span class="ico-discord-nobg"></span>Join</div>
+        </div>
+        <div class="header-bot">
+            <div class="col">
+                <span>Online</span>
+                <span>78</span>
+            </div>
+            <div class="col">
+                <span>Whitelist</span>
+                <span>Yes</span>
+            </div>
+            <div class="col">
+                <span>Feedback</span>
+                <span>100%</span>
+            </div>
+            <div class="graph">
+                <span id="graph-name">Player Count by hour</span>
+                <div id="graph-holder" class="graph-holder">
+                    <div><div style="height: 16%"></div></div>
+                    <div><div style="height: 50%"></div></div>
+                    <div><div style="height: 32%"></div></div>
+                    <div><div class="empty"></div></div>
+                    <div><div style="height: 17%"></div></div>
+                    <div><div style="height: 14%"></div></div>
+                    <div><div style="height: 13%"></div></div>
+                    <div><div style="height: 11%"></div></div>
+                    <div><div style="height: 9%"></div></div>
+                    <div><div style="height: 5%"></div></div>
+                    <div><div style="height: 42%"></div></div>
+                    <div><div style="height: 47%"></div></div>
+                    <div><div style="height: 18%"></div></div>
+                    <div><div style="height: 10%"></div></div>
+                    <div><div class="empty"></div></div>
+                    <div><div class="empty"></div></div>
+                    <div><div></div></div>
+                    <div><div style="height: 30%"></div></div>
+                    <div><div></div></div>
+                    <div><div style="height: 30%"></div></div>
+                    <div><div></div></div>
+                    <div><div style="height: 30%"></div></div>
+                    <div><div class="empty"></div></div>
+                    <div><div style="height: 42%"></div></div>
+                    <div><div style="height: 24%"></div></div>
+                    <div><div style="height: 10%"></div></div>
+                    <div><div style="height: 22%"></div></div>
+                    <div><div style="height: 18%"></div></div>
+                    <div><div style="height: 15%"></div></div>
+                    <div><div style="height: 4%"></div></div>
+                    <div><div style="height: 16%"></div></div>
+                    <div><div style="height: 9%"></div></div>
+                    <div><div style="height: 50%"></div></div>
+                    <div><div class="dead"></div></div>
+                    <div><div style="height: 50%"></div></div>
+                    <div><div></div></div>
+                    <div><div></div></div>
+                    <div><div style="height: 30%"></div></div>
+                    <div><div style="height: 30%"></div></div>
+                    <div><div style="height: 17%"></div></div>
+                    <div><div style="height: 6%"></div></div>
+                    <div><div style="height: 43%"></div></div>
+                    <div><div style="height: 38%"></div></div>
+                    <div><div style="height: 17%"></div></div>
+                    <div><div style="height: 19%"></div></div>
+                    <div><div style="height: 5%"></div></div>
+                    <div><div style="height: 18%"></div></div>
+                    <div><div style="height: 16%"></div></div>
+                    <div><div style="height: 14%"></div></div>
+                    <div><div style="height: 10%"></div></div>
+                    <div><div style="height: 13%"></div></div>
+                    <div><div style="height: 47%"></div></div>
+                    <div><div style="height: 42%"></div></div>
+                    <div data-time="1997-07-16T18:20+01:00" data-count="28"><div style="height: 14%"></div></div>
+                    <div data-time="1997-07-16T19:20+01:00" data-count="18"><div style="height: 9%"></div></div>
+                </div>
+                <div id="graph-tt"><span>Monday, 4/2021</span> 24 Players</div>
+                <div class="graph-controls">
+                    <div id="hourly-control" class="active">Hourly</div><div id="daily-control">Daily</div><div id="weekly-control">Weekly</div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<section class="reviews">
-    <div class="leave-review">
-        <p>Login to leave reviews.</p>
+    <div class="content-container">
+        <section class="desc">
+            <div class="tags">
+                <span>Primarily PvE</span>
+                <span>Vanilla</span>
+                <span>Events</span>
+                <span>Parkour</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h3>Features</h3>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h3>Features</h3>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        </section>
+
+        <section class="reviews">
+            <div class="leave-review">
+                <p>Login to leave reviews.</p>
+            </div>
+            <div id="reviews-container">
+                <div class="review-item">
+                    <div><span class="ico-thumbsup"></span><span></span><span><img src="https://cdn.discordapp.com/avatars/439943171049259018/860483436dd16858328976575960278a.png?size=4096">Saurek#7647</span></div>
+                    <p>Great server, very active and supportive admins almost all the time.
+                        The only cons, for me, is that the admins are very soft LMAO
+                        Even if you drop an item into the wild, it’s forbidden for another player to take, making the server 100% Coop PVE, that’s its a bit silly, but it’s fine… besides that, nothing to worry! completely anti-griefers!</p>
+                    <date>April, 25th - 2021</date>
+                </div>
+                <div class="review-item">
+                    <div><span class="ico-thumbsup"></span><span></span><span><img src="https://cdn.discordapp.com/avatars/439943171049259018/860483436dd16858328976575960278a.png?size=4096">Saurek#7647</span></div>
+                    <p>Great server, very active and supportive admins almost all the time.
+                        The only cons, for me, is that the admins are very soft LMAO
+                        Even if you drop an item into the wild, it’s forbidden for another player to take, making the server 100% Coop PVE, that’s its a bit silly, but it’s fine… besides that, nothing to worry! completely anti-griefers!</p>
+                    <date>April, 25th - 2021</date>
+                </div>
+                <div class="review-item">
+                    <div><span class="ico-thumbsdown"></span><span></span><span><img src="https://cdn.discordapp.com/avatars/177587521167949824/8ca6406fedca05beb6d6181c05118734.png?size=4096">Voidman#7647</span></div>
+                    <p>server sucks</p>
+                    <date>April, 25th - 2021</date>
+                </div>
+            </div>
+            <div class="review-count">Showing <b>3</b> of <b>47</b> reviews.</div>
+            <div id="pagination">
+                <div id="pag-last">Last</div>
+                <div id="pag-next">Next</div>
+            </div>
+        </section>
     </div>
-    <div class="review-item">
-        <div><span class="ico-thumbsup"></span><span></span><span><img src="https://cdn.discordapp.com/avatars/439943171049259018/860483436dd16858328976575960278a.png?size=4096">Saurek#7647</span></div>
-        <p>Great server, very active and supportive admins almost all the time.
-            The only cons, for me, is that the admins are very soft LMAO
-            Even if you drop an item into the wild, it’s forbidden for another player to take, making the server 100% Coop PVE, that’s its a bit silly, but it’s fine… besides that, nothing to worry! completely anti-griefers!</p>
-        <date>April, 25th - 2021</date>
-    </div>
-    <div class="review-item">
-        <div><span class="ico-thumbsdown"></span><span></span><span><img src="https://cdn.discordapp.com/avatars/177587521167949824/8ca6406fedca05beb6d6181c05118734.png?size=4096">Voidman#7647</span></div>
-        <p>server sucks</p>
-        <date>April, 25th - 2021</date>
-    </div>
-</section>
 </div>
 
-<footer></footer>
+<footer>
+
+</footer>
 
 </body>
 </html>
+
+<script>
+    function e(e) {
+        return document.getElementById(e);
+    }
+
+    function copyToClipboard(text) {
+        if (window.clipboardData && window.clipboardData.setData) {
+            // IE specific code path to prevent textarea being shown while dialog is visible.
+            return clipboardData.setData("Text", text);
+
+        } else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+            var textarea = document.createElement("textarea");
+            textarea.textContent = text;
+            textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in MS Edge.
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+            } catch (ex) {
+                console.warn("Copy to clipboard failed.", ex);
+                return false;
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+    }
+
+    e("ipbox").onclick = function () {
+        e("ipbox").style.background = "#485f44";
+        e("ipbox").style.color = "#fff";
+        e("ipbox").style.pointerEvents = "none";
+        e("ipbox").style.transform = "scale(.95)";
+        copyToClipboard(e("ipcontent").innerText)
+        e("iptext").innerText = "Copied!";
+        setTimeout(function(){
+            e("ipbox").style.transform = "scale(1)";
+            e("ipbox").style.transition = "500ms";
+            e("ipbox").style.background = "#3e3e3e";
+            e("ipbox").style.color = "#7f7f7f";
+        }, 500);
+        setTimeout(function(){
+            e("ipbox").style.pointerEvents = "default";
+            e("ipbox").style.cssText = "";
+            e("iptext").innerText = "Click to copy IP";
+        }, 1000);
+    };
+
+    e("graph-holder").addEventListener("mousemove", function(val) {
+        var elem = document.elementFromPoint(val.pageX, val.pageY);
+        e("graph-tt").innerHTML = `<span>${elem.dataset.time}</span> ${elem.dataset.count} Players`;
+    });
+</script>
+<link rel="stylesheet" href="/assets/css/icons.css">

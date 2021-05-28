@@ -21,7 +21,6 @@
     <link rel="preconnect" href="https://api.valheimlist.org">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/home.css">
     <link rel="stylesheet" href="/assets/css/icons.css">
 </head>
@@ -84,4 +83,16 @@
 
 </body>
 
-<script src="/assets/scripts/scripts.js"></script>
+<script>
+    function e(e) {
+        return document.getElementById(e);
+    }
+
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            e("sidebar-content").style.position = "fixed";
+        } else {
+            e("sidebar-content").style.position = "static";
+        }
+    });
+</script>
