@@ -47,7 +47,7 @@ nav .logo-mast {
 #see-all-servers {
     position: absolute;
     left: 0;
-    top: 15px;
+    top: 16px;
     letter-spacing: 1px;
     font-weight: 700;
     font-size: 13px;
@@ -75,16 +75,47 @@ nav span {
     border-radius: 200px;
     padding: 9px 0;
     font-size: 13px;
+    height: 40px;
     color: #fff;
-    letter-spacing: .5px;
     box-shadow: 0 5px 10px rgba(0,0,0,.5);
     border: 1px solid #4e63af;
     cursor: pointer;
-    width: 145px;
+    min-width: 145px;
     font-weight: 600;
     position: absolute;
     right: 0;
     top:16px;
+    white-space: nowrap;
+}
+
+.discord-button img {
+    width: 29px;
+    height: 29px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+
+.online-tick {
+    border-radius: 50px;
+    background: #4cff00;
+    box-sizing: content-box;
+    border: 2.5px solid #566cba;
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    top: 21px;
+    left: -21px;
+}
+
+.discord-button div {
+    margin: 2px 10px 0 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+    text-transform: initial;
 }
 
 .discord-button:hover {
@@ -139,7 +170,7 @@ header {
 .header-top div:nth-child(4) span {
     text-align: center;
     width: 165px;
-    padding: 8px 0;
+    padding: 8px 10px;
     margin: 6px auto 5px auto;
     border-radius: 10px;
     color: #fff;
@@ -149,6 +180,8 @@ header {
     font-size: 11px;
     font-family: "Courier New", monospace;
     letter-spacing: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .header-top div:last-child {
@@ -496,6 +529,23 @@ section {
 .review-item p {
     line-height: 22px;
     font-size: 15px;
+}
+
+.showmore {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    background-color: #3b3b3b;
+    padding: 1px 10px;
+    border-radius: 5px;
+    margin: 10px 0 0 0;
+    cursor:pointer;
+}
+
+.showmore:hover {
+    background-color: #525252;
+    color: #fff;
 }
 
 .review-item date {

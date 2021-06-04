@@ -20,7 +20,6 @@
 
     <link rel="preconnect" href="https://api.valheimlist.org">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="/assets/css/home.css">
     <link rel="stylesheet" href="/assets/css/icons.css">
 </head>
@@ -29,7 +28,7 @@
     <div class="header-content-container">
         <img class="logo-mast" src="/assets/img/logo.svg" alt="Valheimlist.org">
         <h4>The fair & open Valheim server list!</h4>
-        <p>No ads, paid placements, or "donations" - just a community for the best Valheim servers! <span class="uwu"></span></p>
+        <p><b>No ads or paid placements</b> - just an awesome community to find the best Valheim servers! <span class="uwu"></span></p>
         <div class="bg"></div>
         <div class="bgcolorhack"></div>
     </div>
@@ -83,16 +82,7 @@
 
 </body>
 
+<script src="assets/scripts/scripts.js"></script>
 <script>
-    function e(e) {
-        return document.getElementById(e);
-    }
-
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            e("sidebar-content").style.position = "fixed";
-        } else {
-            e("sidebar-content").style.position = "static";
-        }
-    });
+    trackScrollSidebar()
 </script>

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>NAME GOES HERE - Valheimlist.org</title>
@@ -23,12 +22,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="/assets/css/listing.css">
 </head>
+<html lang="en">
 <body>
 <div class="width-container">
     <nav>
         <img class="logo-mast" src="/assets/img/logo.svg" alt="Valheimlist.org">
         <div id="see-all-servers"><span class="ico-server"></span>Browse servers</div>
-        <div class="discord-button" onClick="location.href='https://discord.com/api/oauth2/authorize?client_id=845109868985450517&redirect_uri=https%3A%2F%2Fvalheimlist.org%2Fdiscord%2F&response_type=code&scope=guilds.join%20identify%20guilds'">
+        <div id="disbtn" class="discord-button" onClick="window.open('https://discord.com/api/oauth2/authorize?client_id=845109868985450517&redirect_uri=https%3A%2F%2Fapi.valheimlist.org%2Foauth2%2F&response_type=code&scope=guilds.join%20identify%20guilds', '_blank')">
             <span class="ico-discord"></span>
             Login
         </div>
@@ -40,7 +40,7 @@
             <img alt="The server logo image" src="/assets/uploads/comfylogo.png">
             <h1>Comfy Valheim</h1>
             <p>A casual place to make friends! We have custom events, an economy, guilds, & more! </p>
-            <div id="ipbox"><span id="ipcontent">255.255.255.255:24157</span><b id="iptext">Click to copy IP</b></div>
+            <div id="ipbox"><span id="ipcontent">comfy.valngos.com</span><b id="iptext">Click to copy IP</b></div>
             <div><span class="ico-discord-nobg"></span>Join</div>
         </div>
         <div class="header-bot">
@@ -147,9 +147,9 @@
             <div id="reviews-container">
                 <div class="review-item">
                     <div><span class="ico-thumbsup"></span><span></span><span><img src="https://cdn.discordapp.com/avatars/439943171049259018/860483436dd16858328976575960278a.png?size=4096">Saurek#7647</span></div>
-                    <p>Great server, very active and supportive admins almost all the time.
-                        The only cons, for me, is that the admins are very soft LMAO
-                        Even if you drop an item into the wild, it’s forbidden for another player to take, making the server 100% Coop PVE, that’s its a bit silly, but it’s fine… besides that, nothing to worry! completely anti-griefers!</p>
+                    <p id="gasggre5y" data-fulltext="Great server, very active and supportive admins almost all the time. The only cons, for me, is that the admins are very soft LMAO Even if you drop an item into the wild, it’s forbidden for another player to take, making the server 100% Coop PVE, that’s its a bit silly, but it’s fine… besides that, nothing to worry! completely anti-griefers!">Great server, very active and supportive admins almost all the time.
+                        Great server, very active and supportive admins almost all the time. The only cons,...</p>
+                    <span class="showmore">Click to see more</span>
                     <date>April, 25th - 2021</date>
                 </div>
                 <div class="review-item">
@@ -175,39 +175,14 @@
 </div>
 
 <footer>
-
+    ValheimList.org is developed and maintained by the VaLNGOS Project.
 </footer>
 
 </body>
 </html>
 
+<script src="assets/scripts/scripts.js"></script>
 <script>
-    function e(e) {
-        return document.getElementById(e);
-    }
-
-    function copyToClipboard(text) {
-        if (window.clipboardData && window.clipboardData.setData) {
-            // IE specific code path to prevent textarea being shown while dialog is visible.
-            return clipboardData.setData("Text", text);
-
-        } else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
-            var textarea = document.createElement("textarea");
-            textarea.textContent = text;
-            textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in MS Edge.
-            document.body.appendChild(textarea);
-            textarea.select();
-            try {
-                return document.execCommand("copy");  // Security exception may be thrown by some browsers.
-            } catch (ex) {
-                console.warn("Copy to clipboard failed.", ex);
-                return false;
-            } finally {
-                document.body.removeChild(textarea);
-            }
-        }
-    }
-
     e("ipbox").onclick = function () {
         e("ipbox").style.background = "#485f44";
         e("ipbox").style.color = "#fff";
