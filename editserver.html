@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Servers! - Valheimlist.org</title>
+
+    <link rel="preconnect" href="https://api.valheimlist.org">
+    <link rel="stylesheet" href="/assets/css/listing.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
+</head>
+<body>
+<div class="width-container">
+    <nav>
+        <img class="logo-mast" src="/assets/img/logo.svg" alt="Valheimlist.org">
+        <div id="see-all-servers"><span class="ico-server"></span>Browse servers</div>
+        <div id="disbtn" class="discord-button"
+             onClick="window.open('https://discord.com/api/oauth2/authorize?client_id=845109868985450517&redirect_uri=https%3A%2F%2Fapi.valheimlist.org%2Foauth2%2F&response_type=code&scope=guilds.join%20identify%20guilds', '_blank')">
+            <span class="ico-discord"></span>
+            Login
+        </div>
+    </nav>
+    <div class="edit-server">
+        <h1 id="name-2">Edit ""</h1>
+
+        <div class="item-block">
+            <h3>Set public:</h3>
+            <p>When you are ready for your server to appear publicly click this box.</p>
+            <label class="form-switch">
+                <input id="is_public" type="checkbox">
+                <i></i>
+            </label>
+        </div>
+
+        <div class="item-block">
+            <h3>Server name:</h3>
+            <p><b>Required.</b> Must not exceed 30 characters.</p>
+            <input id="name" class="input-box">
+        </div>
+
+        <div class="item-block">
+            <h3>Game server IP & port:</h3>
+            <p>The port your gameserver is exposed on. If default you do not need to put the port.</p>
+            <input id="ip" class="input-box" placeholder="255.255.255.255:2456">
+        </div>
+
+        <div class="item-block">
+            <h3>Steam matchmaking IP & port:</h3>
+            <p>Upon entry ValheimList.org will begin pinging your server every 5 minutes. If default you do not need to
+                put the port.</p>
+            <input id="ip_mm" class="input-box" placeholder="255.255.255.255:2457">
+        </div>
+
+        <div class="item-block">
+            <h3>Discord Guild ID:</h3>
+            <p>Found by looking at the first string of numbers appearing in the URL while viewing your guild. <br>Allows
+                ValheimList.org to directly add players to your Discord without displaying the intermediate join
+                acceptance screen.</p>
+            <input id="guild_id" class="input-box" placeholder="820120530107367435">
+        </div>
+
+        <div class="item-block">
+            <h3>Discord invite link:</h3>
+            <p>Don't forget to pick the channel you want new players to be in when you generate your invite link.</p>
+            <input id="discord_link" class="input-box" placeholder="https://discord.gg/ameHJz5PFk">
+        </div>
+
+        <div class="item-block">
+            <h3>Require player whitelist:</h3>
+            <p>If your server has a whitelist or password check this box.</p>
+            <label class="form-switch">
+                <input id="is_whitelist" type="checkbox">
+                <i></i>
+            </label>
+        </div>
+
+        <div class="item-block">
+            <h3>Short Summary:</h3>
+            <p><b>Required.</b> Must not exceed 80 characters.</p>
+            <textarea id="summary" class="input-box" placeholder="Empty"></textarea>
+        </div>
+
+        <div class="item-block">
+            <h3>Categories:</h3>
+            <p>Select the categories that describe your server.</p>
+            <table cellspacing="0" rules="all" border="1" id="Table1" style="border-collapse: collapse;">
+                <tr>
+                    <th style="width:100px">Selected</th>
+                    <th style="width:140px">Category</th>
+                </tr>
+                <tr>
+                    <td><label class="form-switch">
+                        <input type="checkbox">
+                        <i></i>
+                    </label></td>
+                    <td>PvP</td>
+                </tr>
+                <tr>
+                    <td><label class="form-switch">
+                        <input type="checkbox">
+                        <i></i>
+                    </label></td>
+                    <td>PvE</td>
+                </tr>
+                <tr>
+                    <td><label class="form-switch">
+                        <input type="checkbox">
+                        <i></i>
+                    </label></td>
+                    <td>Un-modded</td>
+                </tr>
+                <tr>
+                    <td><label class="form-switch">
+                        <input type="checkbox">
+                        <i></i>
+                    </label></td>
+                    <td>Modded</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="item-block">
+            <h3>Welcome Text:</h3>
+            <p>Must not exceed 220 characters.</p>
+            <p>Appears below the page header but above your server content. Use it to provide users with an overview of
+                the main points of your server.</p>
+            <textarea id="welcome_text" class="input-box" placeholder="Empty"></textarea>
+        </div>
+
+        <div class="item-block">
+            <h3>Youtube Video URL:</h3>
+            <p>Appears before your images.</p>
+            <input id="youtube_url" class="input-box" placeholder="Empty"></input>
+        </div>
+
+        <div class="item-block">
+            <h3>Images:</h3>
+            <p>After uploading multiple images you can assign their ordering. You may have up to 12 images.</p>
+            <input type="file" id="myFile" name="filename" placeholder="Empty">
+        </div>
+
+        <div class="item-block">
+            <h3>Features Text:</h3>
+            <p><b>Required.</b> Must not exceed 500 characters.</p>
+            <textarea id="features_text" class="input-box" placeholder="Empty"></textarea>
+        </div>
+
+        <div class="item-block">
+            <h3>About Text:</h3>
+            <p>Must not exceed 500 characters.</p>
+            <textarea id="about_text" class="input-box" placeholder="Empty"></textarea>
+        </div>
+
+        <div class="item-block">
+            <h3>About Server Staff Text:</h3>
+            <p>Must not exceed 500 characters.</p>
+            <textarea id="about_owner_text" class="input-box" placeholder="Empty"></textarea>
+        </div>
+
+        <div class="item-block">
+            <h3>Server UUID:</h3>
+            <div id="server-uuid"></div>
+        </div>
+
+        <div class="item-block">
+            <h3>Created at:</h3>
+            <div id="created_at">Loading...</div>
+        </div>
+
+        <div class="item-block">
+            <h3>Owner Discord ID:</h3>
+            <p>Contact support to transfer your server to a new owner.</p>
+            <div id="owner">Loading...</div>
+        </div>
+
+        <div class="item-block">
+            <h3>DANGER Delete Server:</h3>
+            <p>Flip the switch to display the delete button.</p>
+            <label class="form-switch">
+                <input id="" type="checkbox">
+                <i></i>
+            </label>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+<script src="assets/scripts/scripts.js"></script>
+<script>
+
+    e('server-uuid').innerHTML = `${getQueryVariable("s")}`;
+    let dataObj
+
+    function getServerData() {
+        fetch(serverAddress + `/getserverdata?sid=${getQueryVariable("s")}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                e("name").value = data["name"];
+                e("name-2").innerHTML = `Edit "${data["name"]}"`;
+                e("created_at").innerHTML = data["created_at"];
+                e("owner").innerHTML = data["owner"];
+                e("is_public").checked = data["is_public"];
+                e("ip").value = data["ip"];
+                e("ip_mm").value = data["ip_mm"];
+                e("guild_id").value = data["guild_id"];
+                e("discord_link").value = data["discord_link"];
+                e("is_whitelist").checked = data["is_whitelist"];
+                e("summary").value = data["summary"];
+                e("welcome_text").value = data["welcome_text"];
+                e("youtube_url").value = data["youtube_url"];
+                e("features_text").value = data["features_text"];
+                e("about_text").value = data["about_text"];
+                e("about_owner_text").value = data["about_owner_text"];
+                dataObj = data;
+                registerListeners()
+            });
+    }
+
+    getServerData()
+
+    let submitControls = `<div class="submit-controls">
+<button>Save</button>
+<button>Revert</button>
+</div>`
+
+    function registerListeners() {
+        //text inputs
+        let textInputs = ["name", "ip", "ip_mm", "guild_id", "discord_link", "summary", "welcome_text", "youtube_url",
+            "features_text", "about_text", "about_owner_text"]
+
+        textInputs.forEach(function (item) {
+            e(item).addEventListener("input", function () {
+                if (e(item).value === dataObj[item]) {
+                    if (e(item).parentElement.getElementsByClassName("submit-controls").length !== 0) {
+                        e(item).parentElement.removeChild(
+                            e(item)
+                                .parentElement
+                                .getElementsByClassName("submit-controls")[0])
+                    }
+                } else {
+                    if (e(item).parentElement.getElementsByClassName("submit-controls").length === 0) {
+                        e(item).parentElement.insertAdjacentHTML("beforeend", submitControls);
+                    }
+                }
+            })
+        })
+    }
+
+    function saveField() {
+
+    }
+    function revertField() {
+
+    }
+
+</script>
+
+<style>
+    .edit-server {
+        background-color: #282828;
+        padding: 30px;
+    }
+
+    table {
+        color: #a0a0a0;
+        background-color: #313131;
+    }
+
+    tr {
+        text-align: center;
+    }
+
+    td label {
+        margin-top: 8px
+    }
+
+    h1 {
+        position: static;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #494949;
+    }
+
+    .item-block {
+        padding-bottom: 20px;
+        border-bottom: 1px solid #323232;
+    }
+
+    .item-block div {
+        padding: 10px 20px;
+        margin: 10px 0;
+        color: #cdcdcd;
+        background-color: #4e4e4e;
+        display: inline-block;
+    }
+
+
+    h3 {
+        margin: 30px 0 0 0;
+    }
+
+    p {
+        color: #d5d5d5;
+        padding-bottom: 10px;
+        font-size: 12px;
+    }
+
+    i, input {
+        margin-bottom: 10px;
+    }
+
+    .input-check {
+        width: 40px;
+        height: 40px;
+    }
+
+    .input-box {
+        border: 1px solid #3d3d3d;
+        width: 600px;
+        min-height: 45px;
+        border-radius: 5px;
+        color: #cffff2;
+        padding: 20px;
+        font-size: 16px;
+        background-color: #000;
+        background-repeat: no-repeat;
+        background-size: 25px;
+        background-position: 16px 9px;
+        font-family: "import", sans-serif;
+    }
+
+    textarea {
+        padding: 10px 0;
+    }
+
+    .form-switch {
+        display: inline-block;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .form-switch i {
+        position: relative;
+        display: inline-block;
+        margin-right: .5rem;
+        width: 46px;
+        height: 26px;
+        background-color: #d7d7d7;
+        border-radius: 23px;
+        vertical-align: text-bottom;
+        transition: all 0.3s linear;
+    }
+
+    .form-switch i::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 42px;
+        height: 22px;
+        background-color: #eaeaea;
+        border-radius: 11px;
+        transform: translate3d(2px, 2px, 0) scale3d(1, 1, 1);
+        transition: all 0.25s linear;
+    }
+
+    .form-switch i::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 22px;
+        height: 22px;
+        background-color: #fff;
+        border-radius: 11px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24);
+        transform: translate3d(2px, 2px, 0);
+        transition: all 0.2s ease-in-out;
+    }
+
+    .form-switch:active i::after {
+        width: 28px;
+        transform: translate3d(2px, 2px, 0);
+    }
+
+    .form-switch:active input:checked + i::after {
+        transform: translate3d(16px, 2px, 0);
+    }
+
+    .form-switch input {
+        display: none;
+    }
+
+    .form-switch input:checked + i {
+        background-color: #00f6fd;
+    }
+
+    .form-switch input:checked + i::before {
+        transform: translate3d(18px, 2px, 0) scale3d(0, 0, 0);
+    }
+
+    .form-switch input:checked + i::after {
+        transform: translate3d(22px, 2px, 0);
+    }
+</style>
