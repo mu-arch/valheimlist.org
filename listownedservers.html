@@ -71,15 +71,19 @@
     }
 
     function getServers() {
-        e("owned-servers").innerHTML = "";
         fetch(serverAddress + '/getservers?uid=' + localStorage.getItem('id'))
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                Object.entries(data).forEach(entry => {
-                    let uuid = entry[0];
-                    let name = entry[1];
-                    e("owned-servers").innerHTML += `<div onclick="window.location.href='editserver.html?s=${uuid}'" class="server-item"><div>${name}</div><div>${uuid}</div>
+                e("owned-servers").innerHTML = "";
+                Object.entries(data["servers"]).forEach(entry => {
+                    entry = entry[1]
+                    if (entry["is_public"]) {
+                        entry["is_public"] = ` - <i style="color: #c4ff6e;">Public</i>`
+                    }else {
+                        entry["is_public"] = ` - <i style="color: rgba(255,155,155,0.46);">Not Public</i>`
+                    }
+                    e("owned-servers").innerHTML += `<div onclick="window.location.href='editserver.html?s=${entry["server_uuid"]}'" class="server-item"><div>${entry["name"]}${entry["is_public"]}</div><div>${entry["server_uuid"]}</div>
 <span>[ Click to edit ]</span></div>`
                 });
             });
@@ -87,9 +91,22 @@
 
     getServers()
 
+    window.addEventListener( "pageshow", function ( event ) {
+        var historyTraversal = event.persisted ||
+            ( typeof window.performance != "undefined" &&
+                window.performance.navigation.type === 2 );
+        if ( historyTraversal ) {
+            // Handle page restore.
+            getServers()
+        }
+    });
+
 </script>
 
 <style>
+    i {
+        font-weight: normal;
+    }
     section {
         width: 100%;
     }

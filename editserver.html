@@ -19,12 +19,12 @@
             Login
         </div>
     </nav>
-    <div class="edit-server">
+    <div class="edit-server preload">
         <h1 id="name-2">Edit ""</h1>
 
         <div class="item-block">
             <h3>Set public:</h3>
-            <p>When you are ready for your server to appear publicly click this box.</p>
+            <p>Enable this when you are ready for your server to appear in the public server list. People with the direct URL of your page can always view it even when not public.</p>
             <label class="form-switch">
                 <input id="is_public" type="checkbox">
                 <i></i>
@@ -33,8 +33,9 @@
 
         <div class="item-block">
             <h3>Server name:</h3>
-            <p><b>Required.</b> Must not exceed 30 characters.</p>
-            <input id="name" class="input-box">
+            <p>The name of your server on ValheimList.org</p>
+            <input id="name" data-max="30" class="input-box"><br>
+            <div class="input-length-display">0/30 Characters used.</div>
         </div>
 
         <div class="item-block">
@@ -75,8 +76,9 @@
 
         <div class="item-block">
             <h3>Short Summary:</h3>
-            <p><b>Required.</b> Must not exceed 80 characters.</p>
-            <textarea id="summary" class="input-box" placeholder="Empty"></textarea>
+            <p>Appears in the header of your listing and on the public list.</p>
+            <textarea id="summary" data-max="80" class="input-box" placeholder="Empty"></textarea>
+            <br><div class="input-length-display">0/80 Characters used.</div>
         </div>
 
         <div class="item-block">
@@ -89,28 +91,28 @@
                 </tr>
                 <tr>
                     <td><label class="form-switch">
-                        <input type="checkbox">
+                        <input id="PvP" type="checkbox">
                         <i></i>
                     </label></td>
                     <td>PvP</td>
                 </tr>
                 <tr>
                     <td><label class="form-switch">
-                        <input type="checkbox">
+                        <input id="PvE" type="checkbox">
                         <i></i>
                     </label></td>
                     <td>PvE</td>
                 </tr>
                 <tr>
                     <td><label class="form-switch">
-                        <input type="checkbox">
+                        <input id="Unmodded" type="checkbox">
                         <i></i>
                     </label></td>
                     <td>Un-modded</td>
                 </tr>
                 <tr>
                     <td><label class="form-switch">
-                        <input type="checkbox">
+                        <input id="Modded" type="checkbox">
                         <i></i>
                     </label></td>
                     <td>Modded</td>
@@ -120,11 +122,25 @@
         </div>
 
         <div class="item-block">
+            <h3>Location:</h3>
+            <p>Select where your server is so players know what latency to expect.</p>
+            <select id="location">
+                <option value="na">North America</option>
+                <option value="sa">South America</option>
+                <option value="asia">Europe</option>
+                <option value="asia">Asia</option>
+                <option value="eu">Oceania</option>
+            </select>
+
+        </div>
+
+        <div class="item-block">
             <h3>Welcome Text:</h3>
             <p>Must not exceed 220 characters.</p>
             <p>Appears below the page header but above your server content. Use it to provide users with an overview of
                 the main points of your server.</p>
-            <textarea id="welcome_text" class="input-box" placeholder="Empty"></textarea>
+            <textarea id="welcome_text" data-max="500" class="input-box" placeholder="Empty"></textarea>
+            <br><div class="input-length-display">0/500 Characters used.</div>
         </div>
 
         <div class="item-block">
@@ -134,15 +150,21 @@
         </div>
 
         <div class="item-block">
-            <h3>Images:</h3>
-            <p>After uploading multiple images you can assign their ordering. You may have up to 12 images.</p>
-            <input type="file" id="myFile" name="filename" placeholder="Empty">
+            <h3>Server Image & Page Images:</h3>
+            <p>After uploading multiple images you can assign their ordering as well as select a icon for your server. You may have up to 12 images. Files not exceed 500kb. <br><br><b>When you upload an image the page will refresh. Make sure all of your other changes are saved first.</b>
+            <br><br>Image must be of type: .JPG, .PNG, .GIF, .WEBP.
+            </p>
+                <input type="file" id="filebox" name="filename"><br>
+                <input type="submit" onclick="uploadImage()" value="Upload Image" >
+            <br>
+            <div style="display: none" id="image-warn"></div>
         </div>
 
         <div class="item-block">
             <h3>Features Text:</h3>
             <p><b>Required.</b> Must not exceed 500 characters.</p>
-            <textarea id="features_text" class="input-box" placeholder="Empty"></textarea>
+            <textarea id="features_text" data-max="500" class="input-box" placeholder="Empty"></textarea>
+            <br><div class="input-length-display">0/500 Characters used.</div>
         </div>
 
         <div class="item-block">
@@ -154,7 +176,8 @@
         <div class="item-block">
             <h3>About Server Staff Text:</h3>
             <p>Must not exceed 500 characters.</p>
-            <textarea id="about_owner_text" class="input-box" placeholder="Empty"></textarea>
+            <textarea id="about_owner_text" data-max="500" class="input-box" placeholder="Empty"></textarea>
+            <br><div class="input-length-display">0/500 Characters used.</div>
         </div>
 
         <div class="item-block">
@@ -164,6 +187,7 @@
 
         <div class="item-block">
             <h3>Created at:</h3>
+            <p>Creation time formatted as rfc2822. Time is formatted as GMT as per spec.</p>
             <div id="created_at">Loading...</div>
         </div>
 
@@ -175,15 +199,19 @@
 
         <div class="item-block">
             <h3>DANGER Delete Server:</h3>
-            <p>Flip the switch to display the delete button.</p>
+            <p>If you wish to delete your server permanently flip the switch and save. If you are unsatisfied with ValheimList.org please let us know why in our Discord.</p>
             <label class="form-switch">
-                <input id="" type="checkbox">
+                <input id="is_deleted" type="checkbox">
                 <i></i>
             </label>
         </div>
 
     </div>
 
+</div>
+
+<div class="unsaved-holder">
+    <div id="unsaved">You have unsaved changes!</div>
 </div>
 
 </body>
@@ -199,22 +227,9 @@
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                e("name").value = data["name"];
                 e("name-2").innerHTML = `Edit "${data["name"]}"`;
                 e("created_at").innerHTML = data["created_at"];
                 e("owner").innerHTML = data["owner"];
-                e("is_public").checked = data["is_public"];
-                e("ip").value = data["ip"];
-                e("ip_mm").value = data["ip_mm"];
-                e("guild_id").value = data["guild_id"];
-                e("discord_link").value = data["discord_link"];
-                e("is_whitelist").checked = data["is_whitelist"];
-                e("summary").value = data["summary"];
-                e("welcome_text").value = data["welcome_text"];
-                e("youtube_url").value = data["youtube_url"];
-                e("features_text").value = data["features_text"];
-                e("about_text").value = data["about_text"];
-                e("about_owner_text").value = data["about_owner_text"];
                 dataObj = data;
                 registerListeners()
             });
@@ -223,43 +238,314 @@
     getServerData()
 
     let submitControls = `<div class="submit-controls">
-<button>Save</button>
-<button>Revert</button>
+<div class="submit-bg-hack"></div>
+<button onclick="saveField(this)">Save</button>
+<button onclick="revertField(this)">Revert</button>
 </div>`
 
-    function registerListeners() {
-        //text inputs
-        let textInputs = ["name", "ip", "ip_mm", "guild_id", "discord_link", "summary", "welcome_text", "youtube_url",
-            "features_text", "about_text", "about_owner_text"]
 
-        textInputs.forEach(function (item) {
-            e(item).addEventListener("input", function () {
-                if (e(item).value === dataObj[item]) {
-                    if (e(item).parentElement.getElementsByClassName("submit-controls").length !== 0) {
-                        e(item).parentElement.removeChild(
-                            e(item)
-                                .parentElement
-                                .getElementsByClassName("submit-controls")[0])
-                    }
+    function insertControls(inputs, controlType, accessType) {
+        inputs.forEach(function (item) {
+            let parent = e(item).parentElement;
+            e(item)[accessType] = dataObj[item];
+            renderCharCounter(controlType, parent)
+            e(item).addEventListener(controlType, function () {
+                if (renderCharCounter(controlType, parent)) return;
+                if (e(item)[accessType] === dataObj[item]) {
+                    removeControls(parent)
                 } else {
-                    if (e(item).parentElement.getElementsByClassName("submit-controls").length === 0) {
-                        e(item).parentElement.insertAdjacentHTML("beforeend", submitControls);
+                    if (parent.getElementsByClassName("submit-controls").length === 0) {
+                        parent.insertAdjacentHTML("beforeend", submitControls);
                     }
                 }
             })
         })
     }
 
-    function saveField() {
+    function renderCharCounter(controlType, parent) {
+        if (controlType === "input") {
+            let target = parent.getElementsByClassName("input-box")[0];
+
+            if (target.dataset.max) {
+                parent.getElementsByClassName("input-length-display")[0].innerHTML = `${target.value.length}/${target.dataset.max} Characters used.`
+                if (target.value.length > target.dataset.max) {
+                    parent.getElementsByClassName("input-length-display")[0].style.backgroundColor = "#823434";
+                    removeControls(parent)
+                    return true
+                } else {
+                    parent.getElementsByClassName("input-length-display")[0].style.backgroundColor = "#4e4e4e";
+
+                }
+            }
+        }
+    }
+
+    function removeControls(parent) {
+        if (parent.getElementsByClassName("submit-controls").length !== 0) {
+            parent.removeChild(
+                parent
+                    .getElementsByClassName("submit-controls")[0])
+        }
+    }
+
+    let categoriesState
+    let categories = ["PvP", "PvE", "Modded", "Unmodded"]
+    let catControls = `<div class="submit-controls">
+<div class="submit-bg-hack"></div>
+<button onclick="saveCategories()">Save</button>
+<button onclick="revertCat()">Revert</button>
+</div>`
+
+    let catRegisteredAlready = false;
+    function registerCategoriesInput() {
+        categoriesState = dataObj["categories"].slice(0);
+        console.log(dataObj["categories"])
+        let parent = e("PvP").parentElement.parentElement.parentElement.parentElement.parentElement.parentElement; //we need to anchor ourselves to the div so we just grab the first list item to locate where we are
+
+        categories.forEach(function (item) {
+            if (dataObj["categories"].includes(item)) {
+                e(item).checked = true;
+            } else {
+                e(item).checked = false;
+            }
+            if (catRegisteredAlready) {
+                removeControls(parent)
+                return
+            }
+            e(item).addEventListener("change", function () {
+                if (e(item).checked) {
+                    categoriesState.push(item)
+                } else {
+                    if (categoriesState.indexOf(item) > -1) {
+                        categoriesState.splice(categoriesState.indexOf(item), 1);
+                    }
+                }
+
+                if (categoriesState === dataObj["categories"]) {
+                    removeControls(parent)
+                } else {
+                    if (parent.getElementsByClassName("submit-controls").length === 0) {
+                        parent.insertAdjacentHTML("beforeend", catControls);
+                    }
+                }
+
+            })
+        })
+        catRegisteredAlready = true
+    }
+
+    function revertCat() {
+        registerCategoriesInput()
+    }
+
+    function saveCategories(ele) {
+        let parent = e("PvP").parentElement.parentElement.parentElement.parentElement.parentElement.parentElement; //we need to anchor ourselves to the div so we just grab the first list item to locate where we are
+
+        let valueObj = {};
+        valueObj["server"] = getQueryVariable("s");
+        valueObj["field"] = "categories";
+        valueObj["value"] = categoriesState;
+
+        fetch(serverAddress + '/update_server_field', {
+            method: 'POST',
+            headers: {
+                'session': localStorage.getItem('session'),
+                'uid': localStorage.getItem('id')
+            },
+            body: JSON.stringify(valueObj)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if ("ok" in data) {
+                    dataObj["categories"] = categoriesState.slice(0)
+                    removeControls(parent)
+                }
+            });
+    }
+
+    function registerListeners() {
+        //text inputs
+        let textInputs = ["name", "ip", "ip_mm", "guild_id", "discord_link", "summary", "welcome_text", "youtube_url",
+            "features_text", "about_text", "about_owner_text"]
+        insertControls(textInputs, "input", "value")
+
+        let switchInputs = ["is_public", "is_whitelist", "is_deleted"]
+        insertControls(switchInputs, "change", "checked")
+
+        let selectInputs = ["location"]
+        insertControls(selectInputs, "change", "value")
+
+        //categories custom
+        registerCategoriesInput()
 
     }
-    function revertField() {
 
+    function strip(str) {
+        return str.replace(/^\s+|\s+$/g, '');
     }
+
+    function saveField(ele) {
+        e("unsaved").style.top = "-60px"
+        let parent = ele.parentElement.parentElement
+        let controls = ele.parentElement
+        let inputElm = parent.querySelectorAll('*[id]')[0]
+        let field = inputElm.getAttribute('id')
+        inputElm.disabled = true
+        let inputVal
+
+        if (inputElm.type === "text" || inputElm.type === "textarea") {
+            inputVal = strip(inputElm.value)
+            inputElm.value = inputVal;
+        } else if (inputElm.type === "checkbox") {
+            inputVal = inputElm.checked
+        }else if (inputElm.type === "select-one") {
+            inputVal = inputElm.value
+        }
+
+        let valueObj = {};
+        valueObj["server"] = getQueryVariable("s");
+        valueObj["field"] = field;
+        valueObj["value"] = inputVal;
+
+        //console.log(valueObj)
+
+        fetch(serverAddress + '/update_server_field', {
+            method: 'POST',
+            headers: {
+                'session': localStorage.getItem('session'),
+                'uid': localStorage.getItem('id')
+            },
+            body: JSON.stringify(valueObj)
+        })
+            .then(response => response.json())
+            .then(data => {
+                inputElm.disabled = false
+                if ("ok" in data) {
+                    if(field === "is_deleted") {
+                        window.location.href=staticsiteAddress+"/listownedservers.html"
+                    }
+
+                    dataObj[inputElm.getAttribute('id')] = inputVal
+                    removeControls(parent)
+                    inputElm.style.borderColor = "#00fd00";
+                    setTimeout(function(){
+                        inputElm.style.borderColor = "#3d3d3d";
+                        }, 1000);
+                }
+            });
+    }
+    function revertField(ele) {
+        // ele is "this"
+        e("unsaved").style.top = "-60px"
+        let parent = ele.parentElement.parentElement
+        let inputElm = parent.querySelectorAll('*[id]')[0]
+        let field = inputElm.getAttribute('id');
+        if (inputElm.type === "text" || inputElm.type === "textarea") {
+            inputElm.value = dataObj[field]
+        } else if (inputElm.type === "checkbox") {
+            inputElm.checked = dataObj[field]
+        }else if (inputElm.type === "select-one") {
+            inputElm.value = dataObj[field]
+        }
+
+        removeControls(parent)
+    }
+
+    function uploadImage() {
+        e("image-warn").style.display = "none"
+        let file = e("filebox").files[0]
+        if (file === undefined) {
+            e("image-warn").innerHTML = "You must select a file..."
+            e("image-warn").style.display = "inline-block"
+            return
+        }
+
+        switch (file.type) {
+            case "image/jpeg": {break}
+            case "image/png": {break}
+            case "image/gif": {break}
+            case "image/webp": {break}
+                default: {
+                    e("image-warn").innerHTML = "The image you selected was of an unacceptable type."
+                    e("image-warn").style.display = "inline-block"
+                }
+        }
+        if(file.size > 500000) {
+            e("image-warn").innerHTML = "The file you choose exceeds the limit of 500kb."
+            e("image-warn").style.display = "inline-block"
+            return
+        }
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function(e) {
+
+            const imageUploadPackage = {
+                filetype: file.type,
+                filename: file.name,
+                blob: e.target.result,
+                server: getQueryVariable("s")
+            }
+
+            fetch(serverAddress + '/manage_images', {
+                method: "POST",
+                body: JSON.stringify(imageUploadPackage),
+                headers: {
+                    'session': localStorage.getItem('session'),
+                    'uid': localStorage.getItem('id')
+                },
+            });
+        };
+
+        reader.onerror = function() {
+            console.log(reader.error);
+        };
+    }
+
+
+
+
+    window.addEventListener('load', (event) => {
+        var preload = document.getElementsByClassName("preload");
+        while (preload.length)
+            preload[0].className = preload[0].className.replace(/\bpreload\b/g, "");
+    });
+
+    /*
+    const interval = setInterval(function() {
+        if(document.getElementsByClassName("submit-controls").length !== 0) {
+            e("unsaved").style.top = "20px"
+        }
+    }, 5000);
+
+     */
 
 </script>
 
 <style>
+    #image-warn {
+        background-color: #823434;
+    }
+    #unsaved {
+        background-color: orange;
+        color: #000;
+        font-size: 20px;
+        padding: 8px 0;
+        border-radius: 5px;
+        width: 400px;
+        text-align: center;
+        position: fixed;
+        top: -60px;
+        left: calc(50% - 200px);
+        display: inline-block;
+        transition: 400ms;
+        transition-timing-function: ease-in-out;
+    }
+    .preload * {
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+        -ms-transition: none !important;
+        -o-transition: none !important;
+    }
     .edit-server {
         background-color: #282828;
         padding: 30px;
@@ -283,6 +569,40 @@
         padding-bottom: 10px;
         border-bottom: 2px solid #494949;
     }
+    .submit-bg-hack {
+        position: absolute;
+        top:0;
+        left:0;
+        width: 191px;
+        height: 100%;
+        background-color: #4c442e !important;
+        border: 1px solid #ffbf00;
+        border-radius: 5px;
+        z-index: 1;
+        margin: 0!important;
+    }
+    .submit-controls {
+        position: relative;
+
+        display: block!important;
+        background:none!important;
+        padding:5px!important;
+    }
+    .submit-controls button {
+        position: relative;
+        z-index: 10;
+        padding: 10px 25px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .submit-controls button:last-child {
+        background: none;
+        color: #fff;
+        border:none;
+    }
+    .submit-controls button:last-child:hover {
+        color: red!important;
+    }
 
     .item-block {
         padding-bottom: 20px;
@@ -304,8 +624,10 @@
 
     p {
         color: #d5d5d5;
-        padding-bottom: 10px;
-        font-size: 12px;
+        font-size: 14px;
+        line-height: 20px;
+        max-width: 700px;
+        padding: 10px 0 20px 0;
     }
 
     i, input {
@@ -330,10 +652,12 @@
         background-size: 25px;
         background-position: 16px 9px;
         font-family: "import", sans-serif;
+        transition: 500ms;
     }
 
     textarea {
         padding: 10px 0;
+        min-height: 220px!important;
     }
 
     .form-switch {

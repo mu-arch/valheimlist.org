@@ -39,6 +39,7 @@ function getQueryVariable(variable)
 }
 
 let serverAddress = "http://localhost:3501"
+let staticsiteAddress = "http://localhost:40000"
 
 if (getQueryVariable("code")) {
     fetch(serverAddress + '/oauth2/?code=' + getQueryVariable("code"))
@@ -55,8 +56,10 @@ if (getQueryVariable("code")) {
 }
 
 function renderAccountData() {
-    let avatar_url = 'https://cdn.discordapp.com/avatars/'+localStorage.getItem('id')+'/'+ localStorage.getItem('avatar')+'.jpg'
-    e("disbtn").innerHTML = `<img src="${avatar_url}"><div>${localStorage.getItem('username')}#${localStorage.getItem('discrim')}</div><div class="online-tick"></div>`
+    if (localStorage.getItem("session")) {
+        let avatar_url = 'https://cdn.discordapp.com/avatars/'+localStorage.getItem('id')+'/'+ localStorage.getItem('avatar')+'.jpg'
+        e("disbtn").innerHTML = `<img src="${avatar_url}"><div>${localStorage.getItem('username')}#${localStorage.getItem('discrim')}</div><div class="online-tick"></div>`
+    }
 }
 renderAccountData()
 
