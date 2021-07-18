@@ -42,9 +42,7 @@ let staticsiteAddress = "https://valheimlist.org"
 if (getQueryVariable("code")) {
 if (localStorage.getItem('test')) {
         alert("you are in test mode")
-        return
-    }
-
+    } else {
     //document.write("Intercepting Discord Oauth2 response...")
     fetch(serverAddress + '/oauth2/?code=' + getQueryVariable("code"))
         .then(response => {
@@ -64,6 +62,7 @@ if (localStorage.getItem('test')) {
             renderAccountData()
             window.location.href = localStorage.getItem("url_at_click_time")
         });
+    }
 }
 
 function renderAccountData() {
