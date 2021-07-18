@@ -42,6 +42,7 @@ let staticsiteAddress = "https://valheimlist.org"
 if (getQueryVariable("code")) {
 if (localStorage.getItem('test')) {
         alert("you are in test mode")
+        return
     }
 
     //document.write("Intercepting Discord Oauth2 response...")
