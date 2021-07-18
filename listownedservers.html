@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Servers! - Valheimlist.org</title>
+
+    <link rel="preconnect" href="https://api.valheimlist.org">
+    <link rel="stylesheet" href="/assets/css/listing.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
+</head>
+<body>
+<div class="width-container">
+    <nav>
+        <img onclick="window.location.href = 'https://valheimlist.org'" class="logo-mast" src="../assets/img/logo.svg" alt="Valheimlist.org">
+        <div onclick="window.location.href = 'https://valheimlist.org';" id="see-all-servers"><span class="ico-server"></span>Browse servers</div>
+        <div id="disbtn" class="discord-button" onClick="discord_button_action()">
+            <span class="ico-discord"></span>
+            Login
+        </div>
+
+    </nav>
+    <div class="cache-warning">
+        <h3>Be advised:</h3>
+        <p>It will take 1-5 minutes before your changes are reflected live because ValheimList.org replicates it's user facing pages to datacenters world-wide. This ensures instant load times everywhere.</p>
+        <p>We're always available to help you in our support Discord: <a href="https://discord.gg/pWB3C6xwZq">https://discord.gg/pWB3C6xwZq</a></p>
+    </div>
+    <div class="account-page">
+        <section>
+            <h3>Owned Servers:</h3>
+            <div id="owned-servers">
+                Loading...
+            </div>
+            <div id="add_server_btn" class="btn">Add new server</div>
+        </section>
+        <section>
+            <h3>Account settings:</h3>
+            <div class="btn logout">Log out this browser.</div>
+            <div class="btn logout-all">Log out <b>all</b> browsers.</div>
+            <div>If you wish to delete your account simply remove ValheimList.org in your Discord integrations settings.
+                ValheimList.org stores no user data so there is nothing to delete on our end.
+            </div>
+        </section>
+    </div>
+
+</div>
+
+</body>
+</html>
+<script src="assets/scripts/scripts.js"></script>
+<script>
+
+    e('add_server_btn').addEventListener("click", addServer);
+
+    function addServer() {
+        e('add_server_btn').innerText = "Please wait"
+        e('add_server_btn').style.pointerEvents = "none"
+        fetch(serverAddress + '/create', {
+            method: 'POST',
+            headers: {
+                'session': localStorage.getItem('session'),
+                'uid': localStorage.getItem('id')
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                e('add_server_btn').innerText = "Add new server"
+                e('add_server_btn').style.pointerEvents = "initial"
+                console.log(data)
+                getServers()
+            });
+    }
+
+    function getServers() {
+        fetch(serverAddress + '/getservers?uid=' + localStorage.getItem('id'))
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                e("owned-servers").innerHTML = "";
+                Object.entries(data["servers"]).forEach(entry => {
+                    entry = entry[1]
+                    if (entry["is_public"]) {
+                        entry["is_public"] = ` - <i style="color: #c4ff6e;">Public</i>`
+                    }else {
+                        entry["is_public"] = ` - <i style="color: rgba(255,155,155,0.46);">Not Public</i>`
+                    }
+                    e("owned-servers").innerHTML += `<div onclick="window.location.href='editserver.html?s=${entry["server_uuid"]}'" class="server-item"><div>${entry["name"]}${entry["is_public"]}</div><div>${entry["server_uuid"]}</div>
+<span>[ Click to edit ]</span></div>`
+                });
+            });
+    }
+
+    getServers()
+
+    window.addEventListener( "pageshow", function ( event ) {
+        var historyTraversal = event.persisted ||
+            ( typeof window.performance != "undefined" &&
+                window.performance.navigation.type === 2 );
+        if ( historyTraversal ) {
+            // Handle page restore.
+            getServers()
+        }
+    });
+
+</script>
+
+<style>
+    i {
+        font-weight: normal;
+    }
+    section {
+        width: 100%;
+    }
+    a {
+      color: #fff;
+    }
+    .cache-warning {
+        width: 500px;
+        margin: auto;
+        border: 1px solid #573d00;
+        padding: 10px;
+    }
+
+    .cache-warning h3 {
+        margin: 0 0 10px 0;
+        color: orangered;
+    }
+
+    .cache-warning p {
+        margin: 0 0 10px 0;
+        font-size: 14px;
+        color: #bfbfbf
+    }
+
+    .account-page section {
+        margin: 20px;
+    }
+
+    #owned-servers {
+        margin: 30px 0;
+    }
+
+    .btn {
+        cursor: pointer;
+        display: inline-block;
+        padding: 7px 20px;
+        background-color: #50a833;
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-radius: 5px;
+        margin: 20px;
+    }
+
+    .logout {
+        background-color: #c4552c;
+        font-weight: normal;
+    }
+
+    .logout-all {
+        background-color: red;
+        font-weight: normal;
+    }
+
+    .server-item {
+        border-top: 1px solid #686868;
+        border-bottom: 1px solid #686868;
+        padding: 20px;
+      position: relative;
+      cursor: pointer;
+    }
+    .server-item:hover {
+      background-color: #282828;
+    }
+
+    .server-item div:first-child {
+        font-size: 20px;
+        color: #fff;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .server-item span {
+      position: absolute;
+      top: 25px;
+      right: 20px;
+      font-weight: bold;
+      color: #29cc34;
+    }
+</style>
