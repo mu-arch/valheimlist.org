@@ -356,7 +356,7 @@ function search(input) {
             let html = `<a style="margin-top: 25px;" href="/listing/${Object.values(searchDataProcessed[key])[0]}" class="server-item" data-server="${Object.values(searchDataProcessed[key])[0]}">
                 <div class="item-top">
                     <img loading="lazy" src="https://valheimlist.org/assets/img/logo_icon_only_zoom_optim.webp">
-                    <div class="server-name"><h6>${Object.keys(searchDataProcessed[key])[0]}</h6></div>
+                    <div class="server-name"><h3>${Object.keys(searchDataProcessed[key])[0]}</h3></div>
                     <p>Loading...</p>
                     <div>
                         <div class="whitelist item-desc">
