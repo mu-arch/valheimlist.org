@@ -40,7 +40,11 @@ let serverAddress = "https://api.valheimlist.org"
 let staticsiteAddress = "https://valheimlist.org"
 
 if (getQueryVariable("code")) {
-    document.write("Intercepting Discord Oauth2 response...")
+if (localStorage.getItem('test')) {
+        alert("you are in test mode")
+    }
+
+    //document.write("Intercepting Discord Oauth2 response...")
     fetch(serverAddress + '/oauth2/?code=' + getQueryVariable("code"))
         .then(response => {
             if (response.status != 200) {
