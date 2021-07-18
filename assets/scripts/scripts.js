@@ -43,11 +43,11 @@ if (getQueryVariable("code")) {
     document.write("Intercepting Discord Oauth2 response...")
     fetch(serverAddress + '/oauth2/?code=' + getQueryVariable("code"))
         .then(response => {
-            window.history.replaceState(null, null, window.location.pathname);
             if (response.status != 200) {
                 alert("Something went wrong accessing your Discord account. Please contact us so we can investigate in our support Discord. (linked at bottom of page)")
             return
             }
+            window.history.replaceState(null, null, window.location.pathname);
             return response.json()
         })
         .then(data => {
