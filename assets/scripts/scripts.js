@@ -447,3 +447,9 @@ function search(input) {
 
 
 }
+
+function showImageModal(image) {
+if (image) {
+console.log(image)
+}
+}
