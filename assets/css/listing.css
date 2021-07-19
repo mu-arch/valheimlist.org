@@ -861,7 +861,7 @@ z-index:999;
 }
 
 .image-modal img {
-max-width: calc(100vw - 200px);
+max-width: calc(100vw - 100px);
 margin: auto;
-max-height: calc(100vh - 200px);
+max-height: calc(100vh - 100px);
 }
