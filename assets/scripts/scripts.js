@@ -97,7 +97,7 @@ function trackScrollSidebar() {
 function registerGraphEvents() {
     e("graph-holder").addEventListener("mousemove", function (val) {
         var elem = document.elementFromPoint(val.clientX, val.clientY);
-        console.log(elem.dataset.count)
+        //console.log(elem.dataset.count)
 
         var offset = new Date().getTimezoneOffset();
         let utc_date = new Date(Date.parse(elem.dataset.time));
