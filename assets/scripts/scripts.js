@@ -456,5 +456,8 @@ modal.style.display = "block";
 img.src = image;
 console.log(modal)
 console.log(img)
+} else {
+modal.style.display = "none";
+img.src = "";
 }
 }
