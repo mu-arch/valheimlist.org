@@ -869,6 +869,6 @@ left:50%;
     transform: translate(-50%, -50%);
     padding: 5px;
     border: 4px solid #00f8f2;
-    border-radius: 10px;
+    border-radius: 30px;
 max-height: calc(100vh - 100px);
 }
