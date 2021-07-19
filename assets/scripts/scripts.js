@@ -452,6 +452,7 @@ function showImageModal(image) {
 let modal = document.getElementsByClassName("image-modal")[0]
 let img = modal.getElementsByTagName("img")[0]
 if (image) {
+modal.style.display = "block";
 console.log(modal)
 console.log(img)
 }
