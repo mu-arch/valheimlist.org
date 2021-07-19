@@ -452,6 +452,7 @@ function showImageModal(image) {
 let modal = document.getElementsByClassName("image-modal")[0]
 let img = modal.childNodes[0]
 if (image) {
-console.log(modal, img)
+console.log(modal)
+console.log(img)
 }
 }
