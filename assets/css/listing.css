@@ -856,12 +856,16 @@ bottom:0;
 right:0;
 width: 100vw;
 height:100vh;
-background-color: rgba(0,0,0,.4);
+background-color: rgba(255,255,255,.4);
 z-index:999;
 }
 
 .image-modal img {
 max-width: calc(100vw - 100px);
 margin: auto;
+top:0;
+left:0;
+bottom:0;
+right:0;
 max-height: calc(100vh - 100px);
 }
