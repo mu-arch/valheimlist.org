@@ -450,7 +450,7 @@ function search(input) {
 
 function showImageModal(image) {
 let modal = document.getElementsByClassName("image-modal")[0]
-let img = modal.getElementsByTagName("img")
+let img = modal.getElementsByTagName("img")[0]
 if (image) {
 console.log(modal)
 console.log(img)
