@@ -861,4 +861,5 @@ background-color: rgba(0,0,0,.4)
 
 .image-modal img {
 width: calc(100vw - 50px);
+height: auto;
 }
