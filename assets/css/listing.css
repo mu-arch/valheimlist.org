@@ -846,3 +846,7 @@ footer a:hover {
         -moz-transform-origin: top center;
     }
 }
+
+.image-modal {
+display: none;
+}
