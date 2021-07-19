@@ -863,9 +863,7 @@ z-index:999;
 .image-modal img {
 max-width: calc(100vw - 100px);
 position: fixed;
-left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(50%, 50%);
     border: 5px solid #00f8f2;
     border-radius: 10px;
 max-height: calc(100vh - 100px);
