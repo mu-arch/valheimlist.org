@@ -454,8 +454,6 @@ let img = modal.getElementsByTagName("img")[0]
 if (image) {
 modal.style.display = "block";
 img.src = image;
-console.log(modal)
-console.log(img)
 } else {
 modal.style.display = "none";
 img.src = "";
