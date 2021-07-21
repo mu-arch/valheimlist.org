@@ -121,6 +121,13 @@
                     </label></td>
                     <td>Modded</td>
                 </tr>
+                <tr>
+                    <td><label class="form-switch">
+                        <input id="Small" type="checkbox">
+                        <i></i>
+                    </label></td>
+                    <td>Small</td>
+                </tr>
             </table>
 
         </div>
@@ -298,7 +305,7 @@
     }
 
     let categoriesState
-    let categories = ["PvP", "PvE", "Modded", "Unmodded"]
+    let categories = ["PvP", "PvE", "Modded", "Unmodded", "Small"]
     let catControls = `<div class="submit-controls">
 <div class="submit-bg-hack"></div>
 <button onclick="saveCategories()">Save</button>
