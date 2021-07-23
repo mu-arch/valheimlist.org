@@ -67,7 +67,12 @@ if (localStorage.getItem('test')) {
 
 function renderAccountData() {
     if (localStorage.getItem("session")) {
-        let avatar_url = 'https://cdn.discordapp.com/avatars/'+localStorage.getItem('id')+'/'+ localStorage.getItem('avatar')+'.jpg'
+    	if(localStorage.getItem('avatar') == "") {
+    	let avatar_url = 'https://valheimlist.org/assets/img/nopic.png'
+    	} else {
+    	let avatar_url = 'https://cdn.discordapp.com/avatars/'+localStorage.getItem('id')+'/'+ localStorage.getItem('avatar')+'.jpg'
+    	}
+        
         e("disbtn").innerHTML = `<div class="flair"></div><img src="${avatar_url}"><div class="text-discord">${localStorage.getItem('username')}#${localStorage.getItem('discrim')}</div><div class="online-tick"></div>`
     }
 }
