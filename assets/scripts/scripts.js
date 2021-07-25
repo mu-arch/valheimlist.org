@@ -466,3 +466,9 @@ modal.style.display = "none";
 img.src = "";
 }
 }
+
+function logout() {
+localStorage.removeItem("username");
+localStorage.removeItem("session");
+localStorage.removeItem("avatar");
+}
