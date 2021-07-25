@@ -123,6 +123,7 @@ function registerGraphEvents() {
 
 
 function shiftReviews(direction) {
+document.getElementsByClassName("reviews")[0].scrollIntoView();
     let legend = e("review-count").getElementsByTagName("b")[0].innerText.split(" - ")[0];
     let maxval = e("review-count").getElementsByTagName("b")[1].innerText;
     //console.log(legend)
