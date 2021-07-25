@@ -471,4 +471,5 @@ function logout() {
 localStorage.removeItem("username");
 localStorage.removeItem("session");
 localStorage.removeItem("avatar");
+window.location.href = "https://valheimlist.org"
 }
