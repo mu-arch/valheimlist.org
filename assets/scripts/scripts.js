@@ -226,7 +226,7 @@ function showCommentsInput() {
             },
         }).then(response => {
             if (response.status === 200) {
-                e("leave-review").innerHTML = `<p>You have reviewed this server. <span style="font-size: 10px;color: #a86b6b;cursor:pointer;" onclick="sendReview(true)">Delete review?</span></tov></p>`
+                e("leave-review").innerHTML = `<p>You have reviewed this server. It can take 5 minutes to appear.<span style="font-size: 10px;color: #a86b6b;cursor:pointer;" onclick="sendReview(true)">Delete review?</span></tov></p>`
             } else {
                 e("leave-review").innerHTML = `<textarea id="review-text" placeholder="Write your review here."></textarea>
     <div>
