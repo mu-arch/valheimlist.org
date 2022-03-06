@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>PvE servers on Valheimlist.org </title>
+    
+    <meta name="description" content="A nonprofit & community focused Valheim server list tool.">
+
+    <meta property="og:url" content="https://valheimlist.org/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ValheimList.org">
+    <meta property="og:description"
+          content="A nonprofit & community focused Valheim server list tool.">
+    <meta property="og:image" content="https://valheimlist.org/assets/img/ogbig.jpg">
+
+    <link rel="preconnect" href="https://api.valheimlist.org">
+    <link rel="preconnect" href="https://cdn.statically.io">
+
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
+</head>
+<body>
+
+<header style="height: 155px;">
+    <div class="header-content-container">
+        <img onclick="window.location.href = 'https://valheimlist.org'" style="height: 65px; margin-top: 5px;" class="logo-mast" src="/assets/img/logo.svg" alt="Valheimlist.org">
+        <h2>PvE Servers <div class="header-special">Page <span>7</span> of <span>6</span></div></h2>
+        <div style="filter: blur(20px)" class="bg"></div>
+        <div class="bgcolorhack"></div>
+    </div>
+</header>
+
+
+<section id="list-container">
+
+    <div class="sidebar">
+        <div id="sidebar-content">
+            <div id="disbtn" class="discord-button"
+                 onClick="discord_button_action()">
+                <div class="not-logged-in">
+                    <span class="ico-discord"></span>
+                    Login with Discord
+                </div>
+            </div>
+            <span class="privacy-notice">No data is collected or stored.</span>
+            <a  href="/"><span class="ico-globe"></span>All Servers</a>
+            <a  href="/servers/pvp/1"><span class="ico-swords"></span>PvP Servers</a>
+            <a class="active" href="/servers/pve/1"><span class="ico-mountain"></span>PvE Servers</a>
+            <a  href="/servers/unmodded/1"><span class="ico-icecream"></span>Vanilla Servers</a>
+            <a  href="/servers/modded/1"><span class="ico-cog"></span>Modded Servers</a>
+            <a  href="/servers/small/1"><span class="ico-globe"></span>Small Servers</a>
+        </div>
+    </div>
+    <div class="list-module">
+        
+        <div id="server-list" class="server-list">
+
+            
+
+            <div class="pagination-controls">
+                
+
+                <a href="/servers/pve/1">1</a>
+                <a href="/servers/pve/6">...Back</a>
+
+                <a href="/servers/pve/7" style="text-decoration: underline; background-color: #101010; border: 1px solid #00f7f8;">7</a>
+
+                
+
+                <a href="/servers/pve/8">Next...</a>
+
+                <a href="/servers/pve/6">6</a>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="footer-container">
+        <div class="leftsidefooter">
+            <img src="/assets/img/logo.svg">
+            <div class="text">ValheimList.org is designed & programmed by Saurek of the <a href="https://valngos.com">VaLNGOS
+                Project</a> and Comfy Valheim.<br><br>Special thanks to G4B3 for his work on the logo, plus Voidman & dontevenbother for
+                their ideas, plus <a href="https://www.instagram.com/batskystarman/">Howl</a> for the homepage artwork.
+            </div>
+        </div>
+        <nav>
+            <h6>Additional Links</h6>
+            <a href="https://valheimlist.org">Home</a>
+            <a href="https://discord.gg/pWB3C6xwZq">Our Discord</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=845109868985450517&redirect_uri=https%3A%2F%2Fvalheimlist.org%2F&response_type=code&scope=identify%20guilds%20guilds.join">Reauthenticate</a>
+            <a href="https://ko-fi.com/comfysystems">Donate</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
+        </nav>
+    </div>
+</footer>
+
+
+</body>
+
+<script src="/assets/scripts/scripts.js"></script>
+<script>
+    trackScrollSidebar();
+    getGraphs();
+
+    
+</script>
